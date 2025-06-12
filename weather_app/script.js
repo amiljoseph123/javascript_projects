@@ -30,3 +30,22 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
+// 🎤 Voice input (Web Speech API)
+const micBtn = document.getElementById("micBtn");
+if ('webkitSpeechRecognition' in window) {
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+
+  micBtn.addEventListener("click", () => {
+    recognition.start();
+  });
+
+  recognition.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    document.getElementById("cityInput").value = transcript;
+    getWeather();
+  };
+} else {
+  micBtn.disabled = true;
+  micBtn.title = "Speech recognition not supported";
+}
