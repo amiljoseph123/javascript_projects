@@ -21,3 +21,12 @@ async function getWeather() {
     document.getElementById("weatherResult").innerHTML = `<p>${error.message}</p>`;
   }
 }
+// .......................
+// ⏰ Clock
+function updateClock() {
+  const now = new Date();
+  document.getElementById("clock").textContent = now.toLocaleTimeString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+
