@@ -49,3 +49,4 @@ if ('webkitSpeechRecognition' in window) {
   micBtn.disabled = true;
   micBtn.title = "Speech recognition not supported";
 }
+
